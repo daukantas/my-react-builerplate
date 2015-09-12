@@ -1,7 +1,9 @@
+import Radium from 'radium';
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import TodoTextInput from './TodoTextInput';
 
+@Radium
 class TodoItem extends Component {
   constructor(props, context) {
     super(props, context);
@@ -35,7 +37,7 @@ class TodoItem extends Component {
       );
     } else {
       element = (
-        <div className="view">
+        <div className="view" style={[styles.base]}>
           <input className="toggle"
                  type="checkbox"
                  checked={todo.completed}
@@ -65,6 +67,20 @@ TodoItem.propTypes = {
   editTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
   completeTodo: PropTypes.func.isRequired
+};
+
+const styles = {
+  base : {
+    color : 'red',
+
+    ':hover' : {
+      color : 'blue'
+    },
+
+    '@media (min-width: 1000px)': {
+      color : 'green'
+    }
+  }
 };
 
 export default TodoItem;

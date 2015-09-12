@@ -1,7 +1,11 @@
 import * as types from '../constants/ActionTypes';
 
 export function addTodo(text) {
-  return { type: types.ADD_TODO, text };
+    return dispatch => {
+        setTimeout(() => {
+            dispatch({ type: types.ADD_TODO, text });
+        }, 1000);
+    }
 }
 
 export function deleteTodo(id) {
