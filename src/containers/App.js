@@ -2,20 +2,31 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
-import MainSection from '../components/MainSection';
 import * as TodoActions from '../actions/todos';
+import Radium from 'radium';
 
+@Radium
 class App extends Component {
+  state = {
+    luck : 0
+  }
+
   render() {
-    const { todos, dispatch } = this.props;
+    const { todos, dispatch, children } = this.props;
     const actions = bindActionCreators(TodoActions, dispatch);
 
     return (
       <div>
         <Header addTodo={actions.addTodo} />
-        <MainSection todos={todos} actions={actions} />
+        { children } 
       </div>
     );
+  }
+
+  handleClick () {
+    this.setState({
+      luck : this.state.luck - 1
+    });
   }
 }
 

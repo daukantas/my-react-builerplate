@@ -38,22 +38,26 @@
     "eslint-plugin-react": "*",
     "express": "*",
     "react-transform-catch-errors": "*",
-    "react-transform-webpack-hmr": "*",
+    "react-transform-hmr": "*",
     "redbox-react": "*",
     "webpack": "*",
     "webpack-dev-middleware": "*",
     "webpack-hot-middleware": "*",
     "raw-loader": "*",
     "style-loader": "*",
-    "redux-devtools" : "*"
+    "redux-devtools": "*"
   },
   "dependencies": {
     "classnames": "*",
+    "history": "^1.9.1",
     "radium": "*",
-    "react": "*",
+    "react": "^0.14.0-rc1",
+    "react-dom": "^0.14.0-rc1",
     "react-redux": "*",
+    "react-router": "^1.0.0-rc1",
     "redux": "*",
     "redux-logger": "*",
+    "redux-router": "^1.0.0-beta3",
     "redux-thunk": "*",
     "todomvc-app-css": "*"
   }

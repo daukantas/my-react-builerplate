@@ -1,10 +1,9 @@
 import * as types from '../constants/ActionTypes';
 
 export function addTodo(text) {
+    text = text + '!!!';
     return dispatch => {
-        setTimeout(() => {
-            dispatch({ type: types.ADD_TODO, text });
-        }, 1000);
+        dispatch({ type: types.ADD_TODO, text  });
     }
 }
 
