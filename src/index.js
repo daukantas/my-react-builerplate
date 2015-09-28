@@ -15,19 +15,17 @@ import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
 const store = configureStore();
 
-global.kk = (bool) => {
-    ReactDOM.render(
-        <div>
-            <Provider store={store}>
-                <ReduxRouter>
-                    { routes(bool) } 
-                </ReduxRouter>
-            </Provider>
-            <DebugPanel right left bottom>
-                <DevTools store={store} monitor={LogMonitor} />
-            </DebugPanel>
-        </div>,
-      document.getElementById('root')
-    );
-};
+ReactDOM.render(
+    <div>
+        <Provider store={store}>
+            <ReduxRouter>
+                { routes } 
+            </ReduxRouter>
+        </Provider>
+        <DebugPanel right left bottom>
+            <DevTools store={store} monitor={LogMonitor} />
+        </DebugPanel>
+    </div>,
+  document.getElementById('root')
+);
 

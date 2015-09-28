@@ -17,15 +17,12 @@ class Koko extends Component {
     }
 }
 
-export default function (bool) {
-    var a = <Route path="kkk" component={Koko} />;
-    return (
-        <Route path="/" component={App}>
-            <Route path="bob" component={Koko} />
-            { bool && a }
-        </Route>
-    )
-}
+export default (
+    <Route path="/" component={App}>
+        <Route path="bob" component={Koko} />
+        <Route path="kkk" component={Koko} />
+    </Route>
+)
 
 
 

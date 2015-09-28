@@ -27,7 +27,7 @@ class App extends Component {
       <div>
         <Header addTodo={actions.addTodo} />
         <MainSection todos={todos} actions={actions} />
-        { !this.state.loading && children } 
+        { children } 
       </div>
     );
   }
