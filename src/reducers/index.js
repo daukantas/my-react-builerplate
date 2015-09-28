@@ -5,7 +5,7 @@ import { routerStateReducer } from 'redux-router';
 
 const rootReducer = combineReducers({
     router : routerStateReducer,
-    todos
+    todos : todos
 });
 
 export default rootReducer;

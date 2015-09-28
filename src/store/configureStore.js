@@ -8,7 +8,6 @@ import createHistory from 'history/lib/createBrowserHistory';
 
 import createLogger from 'redux-logger';
 
-import routes from '../routes';
 
 const loggerMiddleware = createLogger({
   level: 'info',
@@ -21,7 +20,7 @@ import { devTools, persistState } from 'redux-devtools';
 import rootReducer from '../reducers';
 
 const finalCreateStore = compose(
-  reduxReactRouter({ createHistory, routes }),
+  reduxReactRouter({ createHistory }),
 
   // Enables your middleware:
   applyMiddleware(

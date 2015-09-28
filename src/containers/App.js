@@ -2,23 +2,32 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
+import MainSection from '../components/MainSection';
 import * as TodoActions from '../actions/todos';
 import Radium from 'radium';
 
-@Radium
 class App extends Component {
   state = {
-    luck : 0
+    loading : true
+  }
+  
+  componentDidMount () {
+    setTimeout(() => {
+      this.setState({
+        loading : false
+      })
+    }, 2000);
   }
 
   render() {
     const { todos, dispatch, children } = this.props;
     const actions = bindActionCreators(TodoActions, dispatch);
-
+    console.log(this.state);
     return (
       <div>
         <Header addTodo={actions.addTodo} />
-        { children } 
+        <MainSection todos={todos} actions={actions} />
+        { !this.state.loading && children } 
       </div>
     );
   }
@@ -36,6 +45,7 @@ App.propTypes = {
 };
 
 function mapStateToProps(state) {
+  console.log({ state });
   return {
     todos: state.todos
   };
