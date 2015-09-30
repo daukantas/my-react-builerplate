@@ -13,6 +13,9 @@ import routes from './routes';
 // React components for Redux DevTools
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
+import style from './styles/style.scss';
+
+
 const store = configureStore();
 
 ReactDOM.render(
