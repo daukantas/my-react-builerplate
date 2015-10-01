@@ -1,48 +1,64 @@
-var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
 
-module.exports = {
+var node_modules_dir = path.join(__dirname, 'node_modules');
+var src_dir = path.join(__dirname, 'src');
+
+var deps = [].concat(
+  Object.keys(require('./package.json').dependencies),
+  ['redbox-react', 'redux-devtools']
+)
+
+
+var config = {
   devtool: '#cheap-module-source-map',
-  entry: [
-    'webpack-hot-middleware/client',
-    './src/index'
-  ],
+
+  entry: {
+    app : [
+      'webpack-hot-middleware/client',
+      './src/index'
+    ],
+    vendor : deps
+  },
+
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.[name].js',
     publicPath: '/static/'
   },
+
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new ExtractTextPlugin('app.css')
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js')
   ],
+
+  resolve: {
+    alias: {}
+  },
+
   module: {
+    
     loaders: [{
         test: /\.js$/,
-        loaders: ['babel'],
-        include: path.join(__dirname, 'src')
+        loaders: ['babel?cacheDirectory'],
+        include: src_dir
       }, 
 
       {
         test: /\.css?$/,
-        loaders: ['style', 'css?sourceMap'],
-        include: path.join(__dirname)
+        loaders: ['style', 'css'],
+        include: [src_dir, path.join(node_modules_dir, 'todomvc-app-css')]
       },
     
       {
         test: /\.scss$/,
         loaders: [ 'style', 'css', 'sass' ],
-        include: path.join(__dirname)
+        include: src_dir
       }
-
-        // {
-        //     test: /\.css$/,
-        //     loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
-        //     include: path.join(__dirname)
-        // }
-
     ]
   }
+
 };
+
+module.exports = config;

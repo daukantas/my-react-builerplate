@@ -34,25 +34,27 @@
     "babel-eslint": "*",
     "babel-loader": "*",
     "babel-plugin-react-transform": "*",
+    "css-loader": "^0.19.0",
     "eslint": "*",
     "eslint-plugin-react": "*",
+    "expose-loader": "^0.7.0",
     "express": "*",
+    "lodash": "^3.10.1",
+    "node-sass": "^3.3.3",
+    "raw-loader": "*",
     "react-transform-catch-errors": "*",
     "react-transform-hmr": "*",
-    "redbox-react": "*",
+    "sass-loader": "^2.0.1",
+    "style-loader": "*",
     "webpack": "*",
     "webpack-dev-middleware": "*",
     "webpack-hot-middleware": "*",
-    "raw-loader": "*",
-    "style-loader": "*",
+    "redbox-react": "*",
     "redux-devtools": "*"
   },
   "dependencies": {
     "classnames": "*",
-    "css-loader": "^0.19.0",
-    "extract-text-webpack-plugin": "^0.8.2",
     "history": "^1.9.1",
-    "node-sass": "^3.3.3",
     "radium": "*",
     "react": "^0.14.0-rc1",
     "react-dom": "^0.14.0-rc1",
@@ -61,8 +63,6 @@
     "redux": "*",
     "redux-logger": "*",
     "redux-router": "^1.0.0-beta3",
-    "redux-thunk": "*",
-    "sass-loader": "^2.0.1",
-    "todomvc-app-css": "*"
+    "redux-thunk": "*"
   }
 }

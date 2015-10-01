@@ -13,6 +13,10 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
+
+// for now
+app.use(express.static('dist'));
+
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
