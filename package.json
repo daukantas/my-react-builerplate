@@ -39,18 +39,20 @@
     "eslint-plugin-react": "*",
     "expose-loader": "^0.7.0",
     "express": "*",
+    "file-loader": "^0.8.4",
     "lodash": "^3.10.1",
     "node-sass": "^3.3.3",
     "raw-loader": "*",
     "react-transform-catch-errors": "*",
     "react-transform-hmr": "*",
+    "redbox-react": "*",
+    "redux-devtools": "*",
     "sass-loader": "^2.0.1",
     "style-loader": "*",
     "webpack": "*",
     "webpack-dev-middleware": "*",
     "webpack-hot-middleware": "*",
-    "redbox-react": "*",
-    "redux-devtools": "*"
+    "webpack-stats-plugin": "^0.1.1"
   },
   "dependencies": {
     "classnames": "*",

@@ -7,22 +7,10 @@ import * as TodoActions from '../actions/todos';
 import Radium from 'radium';
 
 class App extends Component {
-  state = {
-    loading : true
-  }
-  
-  componentDidMount () {
-    setTimeout(() => {
-      this.setState({
-        loading : false
-      })
-    }, 2000);
-  }
-
   render() {
     const { todos, dispatch, children } = this.props;
     const actions = bindActionCreators(TodoActions, dispatch);
-    console.log(this.state);
+
     return (
       <div>
         <Header addTodo={actions.addTodo} />
@@ -32,11 +20,7 @@ class App extends Component {
     );
   }
 
-  handleClick () {
-    this.setState({
-      luck : this.state.luck - 1
-    });
-  }
+  handleClick () {}
 }
 
 App.propTypes = {
@@ -45,7 +29,6 @@ App.propTypes = {
 };
 
 function mapStateToProps(state) {
-  console.log({ state });
   return {
     todos: state.todos
   };

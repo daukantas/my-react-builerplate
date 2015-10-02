@@ -1,0 +1,8 @@
+exports = module.exports = require("./../../node_modules/css-loader/lib/css-base.js")();
+// imports
+
+
+// module
+exports.push([module.id, "body {\n  font-size: 20px; }\n", "", {"version":3,"sources":["/../../../../sass-loader/index.js?sourceMap!/Users/asafkatz/Development/my-react-builerplate/src/src/styles/aaa.scss"],"names":[],"mappings":"AAAA;EACI,gBAAgB,EADd","file":"aaa.scss","sourcesContent":["body {\n    font-size: 20px;\n}"],"sourceRoot":"webpack://"}]);
+
+// exports
