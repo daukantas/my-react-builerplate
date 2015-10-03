@@ -27,7 +27,7 @@ class TodoItem extends Component {
 
   render() {
     const {todo, completeTodo, deleteTodo} = this.props;
-
+    console.log('1111');
     let element;
     if (this.state.editing) {
       element = (
@@ -56,7 +56,7 @@ class TodoItem extends Component {
         completed: todo.completed,
         editing: this.state.editing
       })}>
-        {element}
+       {element}
       </li>
     );
   }

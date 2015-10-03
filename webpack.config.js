@@ -1,22 +1,21 @@
 var webpack = require('webpack');
 var path = require('path');
-var StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
 var node_modules_dir = path.join(__dirname, 'node_modules');
 var src_dir = path.join(__dirname, 'src');
 
-
-// var deps = Object.keys(require('./package.json').dependencies);
-
 var config = {
-  // devtool: 'sourcemap',
+  devtool: 'eval-cheap-module-source-map',
 
   entry: {
     app : [
       'webpack-hot-middleware/client',
       './src/index'
     ],
-    // vendor : ['react', 'redux-devtools', 'radium']
+    globalStyle : [
+      'webpack-hot-middleware/client',
+      './src/styles/style.scss'
+    ]
   },
 
   output: {
@@ -28,36 +27,7 @@ var config = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    //new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
-    // new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', function (module, count) {
-    //     // include all modules not in 'appPath' folder in the vendor bundle
-    //     // console.log((module.resource && module.resource.indexOf(src_dir) === -1), module.resource);
-        
-
-    //     console.log(module);
-
-    //     //   return true;
-    //     // }
-
-    //     if (!module.resource)
-    //       return false;
-
-        
-    //     if (module.resource.indexOf(src_dir) !== -1)
-    //       return false;
-
-    //     // console.log(path.relative(node_modules_dir, module.resource));
-
-    //     return false;
-    // }),
-    // new StatsWriterPlugin({ filename: 'stats.json' })
   ],
-
-  // resolve: {
-  //   alias: {
-  //     // 'history/lib' : path.join(node_modules_dir, 'history/lib')
-  //   },
-  // },
 
   externals : {
     react : 'var React',
@@ -65,25 +35,25 @@ var config = {
     'react-router' : 'var ReactRouter',
     'radium' : 'var Radium'
   },
-  // [
-    // function (context, request, callback) {
-    //   // if (request.indexOf('/') === -1) {
-    //   //   //console.log(context, request);
-    //   //   return callback(null, 'var ' + request);
-    //   // }
-    //   console.log(context);
-    //   if (['react', 'redux-devtools', 'radium'].indexOf(request) !== -1) {
-    //     console.log(request);
-    //     return callback(null, 'var ' + request);
-    //   }
 
-
-    //   callback();
-    // }
-  //],
+  // resolve : {
+  //   alias : {
+  //     'react-router/lib' : path.join(node_modules_dir, 'react/lib'),
+  //     'react-router/lib' : path.join(node_modules_dir, 'react-router/lib'),
+  //     'react' : path.join(node_modules_dir, 'react/dist/react-with-addons.min.js'),
+  //     'react-dom' : path.join(node_modules_dir, 'react/dist/react-dom.min.js'),
+  //     'react-router' : path.join(node_modules_dir, 'react-router/umd/ReactRouter.min.js'),
+  //     'radium' : path.join(node_modules_dir, 'radium/dist/radium.min.js')
+  //   }
+  // },
 
   module: {
-    noParse : [],
+    // noParse : [
+    //   '^react$',
+    //   '^react-dom$',
+    //   '^react-router$',
+    //   '^radium$'
+    // ],
     loaders: [{
         test: /\.js$/,
         loaders: ['babel?cacheDirectory'],
@@ -98,8 +68,7 @@ var config = {
     
       {
         test: /\.scss$/,
-        // loaders: [ 'style/url', 'file?name=[hash:6].[name].css', 'css?sourceMap', 'sass?sourceMap' ],
-        loaders: ['style', 'css?sourceMap', 'sass?sourceMap'],
+        loader: 'style!css?sourceMap!autoprefixer!sass?sourceMap',
         include: src_dir
       }
     ]

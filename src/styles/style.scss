@@ -1,7 +1,10 @@
-body {}
 
-// @import './aaa.scss';
 
-.main {
-    background: gold;
+@import './aaa.scss';
+
+body {
+    .main {
+        background: green;
+        flex: 1;
+    }
 }
