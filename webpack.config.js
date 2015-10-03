@@ -36,24 +36,8 @@ var config = {
     'radium' : 'var Radium'
   },
 
-  // resolve : {
-  //   alias : {
-  //     'react-router/lib' : path.join(node_modules_dir, 'react/lib'),
-  //     'react-router/lib' : path.join(node_modules_dir, 'react-router/lib'),
-  //     'react' : path.join(node_modules_dir, 'react/dist/react-with-addons.min.js'),
-  //     'react-dom' : path.join(node_modules_dir, 'react/dist/react-dom.min.js'),
-  //     'react-router' : path.join(node_modules_dir, 'react-router/umd/ReactRouter.min.js'),
-  //     'radium' : path.join(node_modules_dir, 'radium/dist/radium.min.js')
-  //   }
-  // },
 
   module: {
-    // noParse : [
-    //   '^react$',
-    //   '^react-dom$',
-    //   '^react-router$',
-    //   '^radium$'
-    // ],
     loaders: [{
         test: /\.js$/,
         loaders: ['babel?cacheDirectory'],
