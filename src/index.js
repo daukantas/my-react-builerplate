@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import configureStore from './store/configureStore';
-import 'todomvc-app-css/index.css';
 import { ReduxRouter }  from 'redux-router';
 
 import routes from './routes';
@@ -19,7 +18,7 @@ ReactDOM.render(
     <div>
         <Provider store={store}>
             <ReduxRouter>
-                { routes } 
+                { routes }
             </ReduxRouter>
         </Provider>
     </div>,

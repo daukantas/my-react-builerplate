@@ -32,7 +32,7 @@ var config = {
   externals : {
     react : 'var React',
     'react-dom' : 'var ReactDOM',
-    'react-router' : 'var ReactRouter',
+    // 'react-router' : 'var ReactRouter',
     'radium' : 'var Radium'
   },
 
@@ -52,12 +52,17 @@ var config = {
     
       {
         test: /\.scss$/,
-        loader: 'style!css?sourceMap!autoprefixer!sass?sourceMap',
+        //loader: 'style!css?sourceMap!autoprefixer!sass?sourceMap',
+        loader: 'style!css!sass',
         include: src_dir
+      },
+
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader?limit=8192'
       }
     ]
   }
-
 };
 
 
